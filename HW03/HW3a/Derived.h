@@ -7,6 +7,8 @@ public:
    Derived( );
    virtual ~Derived( );
 
+   virtual void f2();
+
    // add necessary functions here
 
 };

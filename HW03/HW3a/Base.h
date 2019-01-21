@@ -6,6 +6,9 @@ public:
    Base( );
    virtual ~Base( );
 
+   virtual void f1();
+   virtual void f2();
+
    // add necessary functions here
 
 };
