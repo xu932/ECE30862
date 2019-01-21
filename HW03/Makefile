@@ -18,4 +18,4 @@ run3B: hw3b
 	./hw3b
 
 clean:
-	rm -rf output.txt output1.txt output2.txt a.out.dSYM huffman.h.gch
+	rm -rf hw3a hw3b 
