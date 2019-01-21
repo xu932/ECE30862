@@ -2,5 +2,5 @@
 */*.jpeg
 */*.jpg
 */*.png
-*/.idea/*
+./.idea/*
 
