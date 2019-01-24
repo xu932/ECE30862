@@ -36,18 +36,18 @@ d1V.f5( ); // Q14
 std::cout << d1V.i << ", " << d1V.j << ", " << d1V.k << std::endl; // Q15
 
 d1aP->f1( ); // Q16
-d1aP->f2( ); // Q17
+//d1aP->f2( ); // Q17
 d1aP->f3( ); // Q18
 d1aP->f4( ); // Q19
-d1aP->f5( ); // Q20
-std::cout << d1aP->i << ", " << d1aP->j << ", " << d1aP->k << std::endl; // Q21
+//d1aP->f5( ); // Q20
+//std::cout << d1aP->i << ", " << d1aP->j << ", " << d1aP->k << std::endl; // Q21
 
 d1aV.f1( ); // Q22
-d1aV.f2( ); // Q23
+//d1aV.f2( ); // Q23
 d1aV.f3( ); // Q24
 d1aV.f4( ); // Q25
-d1aV.f5( ); // Q26
-std::cout << d1aV.i << ", " << d1aV.j << ", " << d1aV.k << std::endl; // Q27
+//d1aV.f5( ); // Q26
+//std::cout << d1aV.i << ", " << d1aV.j << ", " << d1aV.k << std::endl; // Q27
 
 d2P->f1( ); // Q28
 d2P->f3( ); // Q29
@@ -106,10 +106,10 @@ d2V.f4( ); // Q70
 d2V.f5( ); // Q71
 std::cout << d2V.i << ", " << d2V.j << ", " << d2V.k << std::endl; // Q72
 
-bP = d1aP; // Q73
-bV = d1aV; // Q74
-d1P = d1aP; // Q75
-d1V = d1aV; // Q76
+//bP = d1aP; // Q73
+//bV = d1aV; // Q74
+//d1P = d1aP; // Q75
+//d1V = d1aV; // Q76
 
 }
 
