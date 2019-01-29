@@ -7,9 +7,13 @@ using namespace std;
 
 class PrivDerived : private Base {
 public:
-   PrivDerived( );
-   virtual ~PrivDerived( );
-   void print( );
+    PrivDerived( );
+    virtual ~PrivDerived( );
+    void print( );
+
+    virtual int getPrivB();
+    virtual int getProtB();
+    virtual int getPubB();
 };
 
 #endif /* PRIVDERIVED_H */

@@ -20,37 +20,37 @@ int main(void) {
    dPublic* dpublic = new dPublic( );
 
    cout << "b" << endl;
-   cout << b->privB << endl;
-   cout << b->protB << endl;
+   cout << b->getPrivB() << endl;
+   cout << b->getProtB() << endl;
    cout << b->publicB << endl;
 
    cout << "privd" << endl;
-   cout << privd->privB << endl;
-   cout << privd->protB << endl;
-   cout << privd->publicB << endl;
+   cout << privd->getPrivB() << endl;
+   cout << privd->getProtB() << endl;
+   cout << privd->getPubB() << endl;
 
    cout << "protd" << endl;
-   cout << protd->privB << endl;
-   cout << protd->protB << endl;
-   cout << protd->publicB << endl;
+   cout << protd->getPrivB() << endl;
+   cout << protd->getProtB() << endl;
+   cout << protd->getPubB() << endl;
 
    cout << "publicd" << endl;
-   cout << publicd->privB << endl;
-   cout << publicd->protB << endl;
+   cout << publicd->getPrivB() << endl;
+   cout << publicd->getPrivB() << endl;
    cout << publicd->publicB << endl;
 
    cout << "dpriv" << endl;
-   cout << dpriv->privB << endl;
-   cout << dpriv->protB << endl;
-   cout << dpriv->publicB << endl;
+   cout << dpriv->getPrivB() << endl;
+   cout << dpriv->getProtB() << endl;
+   cout << dpriv->getPubB() << endl;
 
    cout << "dprot" << endl;
-   cout << dprot->privB << endl;
-   cout << dprot->protB << endl;
-   cout << dprot->publicB << endl;
+   cout << dprot->getPrivB() << endl;
+   cout << dprot->getProtB() << endl;
+   cout << dprot->getPubB() << endl;
 
    cout << "dpublic" << endl;
-   cout << dpublic->privB << endl;
-   cout << dpublic->protB << endl;
+   cout << dpublic->getPrivB() << endl;
+   cout << dpublic->getProtB() << endl;
    cout << dpublic->publicB << endl;
 }

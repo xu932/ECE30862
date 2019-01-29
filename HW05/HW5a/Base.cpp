@@ -12,3 +12,19 @@ void Base::print( ) {
    cout << endl << endl;
 }
 
+
+int Base::getPrivB() {
+    return privB;
+}
+
+void Base::setPrivB(int val) {
+    privB = val;
+}
+
+int Base::getProtB() {
+    return protB;
+}
+
+void Base::setProtB(int val) {
+    protB = val;
+}

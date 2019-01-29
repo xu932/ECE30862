@@ -4,9 +4,9 @@ dPriv::dPriv( ) { }
 dPriv::~dPriv( ){ }
 void dPriv::print( ) { 
    cout << "dPriv" << endl;
-   cout << "privB: " << privB; 
-   cout << ", protB: " << protB;
-   cout << ", publicB: " << publicB; 
+   cout << "privB: " << getPrivB(); 
+   cout << ", protB: " << getProtB();
+   cout << ", publicB: " << getPubB(); 
    cout << endl << endl;
 }
 

@@ -7,9 +7,12 @@ using namespace std;
 
 class ProtDerived : protected Base {
 public:
-   ProtDerived( );
-   virtual ~ProtDerived( );
-   void print( );
+    ProtDerived( );
+    virtual ~ProtDerived( );
+    void print( );
+    virtual int getPrivB();
+    virtual int getProtB();
+    virtual int getPubB();
 };
 
 #endif /* PROTDERIVED_H */
