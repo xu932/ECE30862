@@ -11,7 +11,7 @@ GPS::~GPS( ) {
 
 void GPS::subscribe(Observer* observer) {
    if (idx == size) {
-      std::cerr << "Ovserver is full. Size " << size << std::endl;
+      std::cerr << "obs full, size: " << size << ", idx: " << idx << std::endl;
    } else {
       obs[idx++] = observer;
    }
