@@ -15,4 +15,11 @@ int main(void) {
    gps->update(1.0, 1.0);
    gps->update(4.0, 4.0);
 
+   delete alarm1;
+   delete alarm2;
+   delete alarm3;
+
+   delete map;
+   delete gps;
+
 }

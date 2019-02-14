@@ -3,9 +3,15 @@
 #include "Alarm.h"
 
 Alarm::Alarm(Subject * s, int i, double xx, double yy, double alarm) 
-     : {  
+     : id(i), x(xx), y(yy), soundAlarm(alarm) {
+    s->subscribe(this);
 }
 
 Alarm::~Alarm( ) { }
 
+void Alarm::notify(double xx, double yy) {
+    double dist = std::sqrt((x - xx) * (x - xx) + (y - yy) * (y - yy));
+    if (dist > soundAlarm) {
+        std::cout << "Alarm" << id << " Sounded! Moved " << dist << " meters" << std::endl;
+    }
 }
