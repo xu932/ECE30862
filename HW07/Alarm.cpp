@@ -3,7 +3,7 @@
 #include "Alarm.h"
 
 Alarm::Alarm(Subject * s, int i, double xx, double yy, double alarm) 
-     : id(i), x(xx), y(yy), soundAlarm(alarm) {
+     : x(xx), y(yy), soundAlarm(alarm), id(i) {
     s->subscribe(this);
 }
 

@@ -1,7 +1,7 @@
 #include <iostream>
 #include "GPS.h"
 
-GPS::GPS(int s) : x(0.0), y(0.0), size(s), idx(0) {
+GPS::GPS(int s) : x(0.0), y(0.0), idx(0), size(s) {
    obs = new Observer*[size];
 }
 

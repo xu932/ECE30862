@@ -9,9 +9,9 @@ public:
     virtual ~Alarm( );
     virtual void notify(double,double);
 private:
-    float x;
-    float y;
-    float soundAlarm;
+    double x;
+    double y;
+    double soundAlarm;
     int id;
 };
 
