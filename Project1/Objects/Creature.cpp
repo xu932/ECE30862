@@ -15,7 +15,8 @@ void Creature::addInfo(std::string name, rapidxml::xml_node<>* node) {
     } else if (name == "attack") {
         attack = new Attack(node);
     } else if (name == "trigger") {
-        // TODO
+        std::shared_ptr<Trigger> trig = std::make_shared<Trigger>(node);
+        triggers.push_back(trig);
     } else {
         attr[name] = std::string(node->value());
     }

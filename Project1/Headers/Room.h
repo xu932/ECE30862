@@ -8,15 +8,16 @@
 #include <string>
 #include <memory>
 #include <unordered_map>
+#include <vector>
 
+#include "rapidxml.hpp"
 #include "Item.h"
 #include "Container.h"
 #include "Creature.h"
+#include "Trigger.h"
 
 class Room {
 private:
-    bool exit;
-
     std::unordered_map<std::string, std::string> attr;
 
     std::unordered_map<std::string, std::weak_ptr<Item>> items;
@@ -24,9 +25,7 @@ private:
     std::unordered_map<std::string, std::weak_ptr<Creature>> creatures;
     std::unordered_map<std::string, std::string> borders;
 
-
-    // trigger
-
+    std::vector<std::shared_ptr<Trigger>> triggers;
 
 
 public:
@@ -34,11 +33,11 @@ public:
     virtual ~Room();
 
     void addInfo(std::string key, std::string value);
-    void addBorder(rapidxml::xml_node<>* node);
-
+    void addBorder(const rapidxml::xml_node<>* node);
     void addItem(std::string name, std::weak_ptr<Item> item);
     void addContainer(std::string name, std::weak_ptr<Container> container);
     void addCreature(std::string name, std::weak_ptr<Creature> creature);
+    void addTrigger(std::shared_ptr<Trigger> trig);
 
     std::string getInfo(std::string key);
 };

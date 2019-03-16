@@ -15,6 +15,7 @@
 #include "Item.h"
 #include "Container.h"
 #include "Creature.h"
+#include "Trigger.h"
 
 class Map {
 private:
@@ -25,7 +26,7 @@ private:
 
 
 public:
-    Map();
+    Map(std::unordered_map<std::string, std::vector<rapidxml::xml_node<>*>>& elements);
     virtual ~Map();
 
     void addRoom(rapidxml::xml_node<> *root);

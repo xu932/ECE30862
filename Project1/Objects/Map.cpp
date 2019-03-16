@@ -4,7 +4,25 @@
 
 #include "../Headers/Map.h"
 
-Map::Map() {}
+Map::Map(std::unordered_map<std::string, std::vector<rapidxml::xml_node<>*>>& elements) {
+    std::vector<rapidxml::xml_node<>*> nodes;
+
+    nodes = elements["item"];
+    for (auto n : nodes)    addItem(n);
+
+    nodes = elements["creature"];
+    for (auto n : nodes)    addCreature(n);
+
+    nodes = elements["container"];
+    for (auto n : nodes)    addContainer(n);
+
+    nodes = elements["room"];
+    for (auto n : nodes)    {
+        std::cout << n->name() << std::endl;
+        addRoom(n);
+    }
+}
+
 Map::~Map() {}
 
 void Map::addRoom(rapidxml::xml_node<> *root) {
@@ -12,6 +30,7 @@ void Map::addRoom(rapidxml::xml_node<> *root) {
     rapidxml::xml_node<>* node;
     for (node = root->first_node(); node; node = node->next_sibling()) {
         std::string name(node->name());
+        std::cout << "\t" << name << std::endl;
         if (name == "container") {
             std::string temp(node->value());
             if (containers.find(temp) != containers.end()) {
@@ -37,7 +56,10 @@ void Map::addRoom(rapidxml::xml_node<> *root) {
                 exit(1);
             }
         } else if (name == "trigger") {
-            // TODO
+            std::shared_ptr<Trigger> trig = std::make_shared<Trigger>(node);
+            room->addTrigger(trig);
+        } else if (name == "border") {
+            room->addBorder(node);
         } else {
             room->addInfo(name, std::string(node->value()));
         }
@@ -56,7 +78,8 @@ void Map::addItem(rapidxml::xml_node<> *root) {
             std::string action = node->first_node("action")->value();
             item->initTurnOn(print, action);
         } else if (name == "trigger") {
-            // TODO
+            std::shared_ptr<Trigger> trig = std::make_shared<Trigger>(node);
+            item->addTrigger(trig);
         } else {
             item->addInfo(name, std::string(node->value()));
         }
@@ -72,7 +95,8 @@ void Map::addContainer(rapidxml::xml_node<> *root) {
     for (node = root->first_node(); node; node = node->next_sibling()) {
         std::string name(node->name());
         if (name == "trigger") {
-            // TODO
+            std::shared_ptr<Trigger> trig = std::make_shared<Trigger>(node);
+            container->addTrigger(trig);
         } else if (name == "accept") {
             container->addAccepts(name);
         } else if (name == "item") {

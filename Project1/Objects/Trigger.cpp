@@ -5,7 +5,7 @@
 #include "../Headers/Trigger.h"
 
 
-Trigger::Trigger(const rapidxml::xml_node<> *root) : type(2), hasTriggered(false) {
+Trigger::Trigger(rapidxml::xml_node<> *root) : type(2), hasTriggered(false) {
     rapidxml::xml_node<>* node;
     for (node = root->first_node(); node; node = node->next_sibling()) {
         std::string name(node->name());

@@ -29,3 +29,6 @@ std::string Container::getInfo(std::string key) {
     return "[ERROR]";
 }
 
+void Container::addTrigger(std::shared_ptr<Trigger> trig) {
+    triggers.push_back(trig);
+}

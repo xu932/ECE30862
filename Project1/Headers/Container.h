@@ -17,7 +17,8 @@ class Container {
 private:
     std::unordered_map<std::string, std::string> attr;
     std::unordered_set<std::string> accepts;
-    std::unordered_map<std::string, std::weak_ptr<Item>> items;
+    std::unordered_map<std::string, std::shared_ptr<Item>> items;
+    std::vector<std::shared_ptr<Trigger>> triggers;
 
 public:
     Container();
@@ -26,6 +27,7 @@ public:
     void addInfo(std::string key, std::string value);
     void addItem(std::string item, std::unordered_map<std::string, std::shared_ptr<Item>>& items);
     void addAccepts(std::string item);
+    void addTrigger(std::shared_ptr<Trigger> trig);
 
     std::string getInfo(std::string key);
 

@@ -13,11 +13,14 @@
 
 #include "rapidxml.hpp"
 #include "Attack.h"
+#include "Trigger.h"
 
 class Creature {
 private:
     std::unordered_map<std::string, std::string> attr;
     std::unordered_set<std::string> vulner;
+    std::vector<std::shared_ptr<Trigger>> triggers;
+
     Attack *attack;
 
 public:

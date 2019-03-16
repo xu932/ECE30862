@@ -4,7 +4,7 @@
 
 #include "../Headers/Item.h"
 
-Item::Item() : state(NA){}
+Item::Item() {}
 
 Item::~Item() {}
 
@@ -13,7 +13,6 @@ void Item::addInfo(std::string key, std::string value) {
 }
 
 void Item::initTurnOn(std::string print, std::string action) {
-    state = OFF;
     turn_on["print"] = print;
     turn_on["action"] = action;
 }
@@ -23,3 +22,6 @@ std::string Item::getInfo(std::string key) {
     return "[ERROR]";
 }
 
+void Item::addTrigger(std::shared_ptr<Trigger> trig) {
+    triggers.push_back(trig);
+}

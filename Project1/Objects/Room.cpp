@@ -12,10 +12,17 @@ void Room::addInfo(std::string key, std::string value) {
     attr[key] = value;
 }
 
-void Room::addBorder(rapidxml::xml_node<> *node) {
-    std::string direction = node->first_node("direction")->value();
-    std::string name = node->first_node("name")->value();
-    borders[direction] = name;
+void Room::addBorder(const rapidxml::xml_node<> *node) {
+    std::string dir = "default";
+    std::string rm = "none";
+    for (rapidxml::xml_node<> *n = node->first_node(); n; n = n->next_sibling()) {
+        std::string name(n->name());
+        std::string value(n->value());
+        if (name == "direction")    dir = value;
+        if (name == "name")         rm = value;
+    }
+
+    borders[dir] = rm;
 }
 
 void Room::addItem(std::string name, std::weak_ptr <Item> item) {
@@ -28,6 +35,10 @@ void Room::addContainer(std::string name, std::weak_ptr <Container> container) {
 
 void Room::addCreature(std::string name, std::weak_ptr <Creature> creature) {
     creatures[name] = creature;
+}
+
+void Room::addTrigger(std::shared_ptr<Trigger> trig) {
+    triggers.push_back(trig);
 }
 
 std::string Room::getInfo(std::string key) {
