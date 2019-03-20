@@ -94,5 +94,44 @@ Set Set::operator/(const Set& s) {
     }
     return ret;
 }
+#endif
+
+#ifdef PARTB
+
+Set operator+(const Set& s, int n) {
+    Set ret = Set(s);
+    if (n < ret.size * 32)
+        ret.arr[n / 32] |= 0x1 << (n % 32);
+    return ret;
+}
+
+Set operator-(const Set& s, int n) {
+    Set ret = Set(s);
+    if (n < ret.size * 32)
+        ret.arr[n / 32] &= ~(0x1 << (n % 32));
+    return ret;
+}
+
+Set operator&(const Set& s1, const Set& s2){
+    Set ret = Set(s1);
+    for (int i = 0; i < std::min(s1.size, s2.size); i++)
+        ret.arr[i] = s1.arr[i] & s2.arr[i];
+    return ret;
+}
+
+Set operator~(const Set& s) {
+    Set ret = Set(s);
+    for (int i = 0; i < s.size; i++)
+        ret.arr[i] = ~s.arr[i];
+    return ret;
+}
+
+Set operator/(const Set& s1, const Set& s2) {
+    Set ret = Set(s1);
+    for (int i = 0; i < s1.size; i++) {
+        ret.arr[i] = s1.arr[i] ^ (s1.arr[i] & s2.arr[i]);
+    }
+    return ret;
+}
 
 #endif

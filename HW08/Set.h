@@ -28,6 +28,14 @@ public:
     Set operator~();
     Set operator/(const Set& s);
 #endif
+
+#ifdef PARTB
+    friend Set operator+(const Set& s, int n);
+    friend Set operator-(const Set& s, int n);
+    friend Set operator&(const Set& s1, const Set& s2);
+    friend Set operator~(const Set& s);
+    friend Set operator/(const Set& s1, const Set& s2);
+#endif
 };
 
 
