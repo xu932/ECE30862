@@ -1,6 +1,6 @@
 // The class that actually performs on a part of a matrix multiply in a
 // thread.  Change this to implement Runnable.
-class MM {                                         
+class MM implements Runnable {                                         
 
     // Times for each thread
     private static long[ ] threadTime = new long[4];

@@ -8,7 +8,7 @@ class Main {
    public static int numThreads;
 
    // Change this to hold MM references
-   private static MM[ ] threads;
+   private static Thread[] threads;
 
    // Code to self initialize the array.
 
@@ -54,7 +54,7 @@ class Main {
       N = Integer.valueOf(args[1]);
 
       // Allocate storage to hold MM object references
-      threads = new MM[numThreads];
+      threads = new Thread[numThreads];
 
       boolean done = false;
       while (!done) {
@@ -63,7 +63,19 @@ class Main {
       }
 
       // Replace with code to start and run the matrix multiplies on each thread
-      new MM(1, N).run( );
+      for (int i = 0; i < numThreads; i++) {
+         threads[i] = new Thread(new MM(numThreads, N));
+      }
+      
+      for (int i = 0; i < numThreads; i++)
+         threads[i].start();
+
+      for (int i = 0; i < numThreads; i++)
+         try {
+            threads[i].join();
+         } catch (InterruptedException e) {
+            e.printStackTrace();
+         }
 
       // Replace with code that:
       // waits until all threads have finished executing
