@@ -14,12 +14,12 @@ The following functions and fields should be defined for each class. You may def
 other functions as convenient.<br>
 
 ### Node:
-**data fields:**<br>
+**data fields:** <br>
 <br>
 * `data`: this field contains the data associated with each node and is of T.
-* `prev` and `next`: these are pointers to a node, and represent the forward and back pointers in the linked list.<br>
-<br>
-**functions:**<br>
+* `prev` and `next`: these are pointers to a node, and represent the forward and back pointers in the linked list. <br>
+
+**functions:** <br>
 <br>
 * `Node(T data)`: A constructor that takes a single argument of type `T`. The `prev` and `next` fields should be set to `NULL`.
 * `~Node( )`: a destructor. It can do nothing.
@@ -30,11 +30,11 @@ other functions as convenient.<br>
 * Overloaded `<<` operator: This takes an `ostream` and a `Node` as arguments and places `Node` on the `ostream`. In my solution I did this by putting the `data` field of the `Node` on the `ostream`, and assuming the data object (of type `T`) defines a `<<` operator. See `MyClass.cpp` for an example of a class that can serve as a data that does this.<br>
 
 ### LinkedList:
-**data fields:**<br>
+**data fields:** <br>
 <br>
-* `head`: a pointer to the head of the linked list.<br>
-<br>
-**functions:**<br>
+* `head`: a pointer to the head of the linked list. <br>
+
+**functions:** <br>
 <br>
 * `LinkedList( )`: A zero arg constructor that sets head to `NULL`.
 * `LinkedList`: constructor that takes a `Node` as an argument. This creates a list with the head of the list pointing to the `Node`.
