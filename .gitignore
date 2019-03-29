@@ -1,7 +1,8 @@
-*/*.out
-*/*.jpeg
-*/*.jpg
-*/*.png
-.idea*
-*/*.zip
+/*
+!*.java
+!*.c
+!*Makefile
+!*.md
+!*.pdf
+!*.txt
 
