@@ -1,3 +1,5 @@
+#include "MyClass.h"
+
 MyClass::MyClass(int key, int data) : key(key), data(data) { }
 
 MyClass::MyClass( ) : key(0), data(-1) { }
